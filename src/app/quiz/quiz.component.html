@@ -1,0 +1,71 @@
+
+<div>
+    <h3 >Test your Knowledge - {{productid}} </h3>
+  </div>
+<div class="container p-5">
+    <router-outlet></router-outlet>
+    <div class="row">
+     <div class="col-sm-8 offset-2">
+         <div *ngIf="currentQuiz<quizzes.length">
+            <p class="text-center">{{currentQuiz +1}} of {{quizzes.length}}</p>
+            <h1>{{quizzes[currentQuiz].question}}</h1>
+   
+            <ul class="list-group" *ngFor="let quiz of quizzes[currentQuiz].answer">
+                <label>
+                <li class="list-group-item" appBackground [correctAnswer]="quiz.correct">
+                    <input type="radio" name="options" (change)="onAnswer(quiz.correct,quiz.option)" [disabled]="answerSelected">
+                   {{quiz.option}}</li>
+               </label>
+            </ul>
+   
+         </div>
+         
+         <div *ngIf="currentQuiz >quizzes.length-1" id="id1">
+
+            
+            <button class="btn btn-success btn-lg btn-block " style="margin: 5px;"  (click)="showResult()">Show Result</button>
+            <div class="text-center" *ngIf="result" style="color: white; ">
+              Correct Answers : {{correctanswers}} | Incorrect Answers : {{incorrectAnswers}}
+            </div>
+            <div>
+                <button class="btn btn-success btn-lg btn-block"  (click)="showReview()">Review</button>
+                <div class="text-center" *ngIf="review">
+                   Please Review your answers :
+                   <div *ngFor="let quiz of quizzes"> 
+                       <h3 style="text-indent: 0%;">{{counter+1}} . {{quiz.question}}</h3>
+
+                       <ul class="list-group" >
+                        <p style="text-decoration-color: cyan;">Correct Answer :</p>
+                        <label>
+                        <li class="list-group-item mb-3" style="background-color:aqua;" >
+                           
+                           {{correctone[counter]}}</li>
+                       </label>
+                       <p >Selected Answer</p>
+                      
+                        <label>
+                        <li class="list-group-item mb-3">
+                           
+                         {{names[counter]}}</li>
+                       </label>
+                    </ul>
+           
+                       
+                      
+                       {{call()}}
+                     
+                   
+                       
+                     
+
+                   </div>
+                 
+
+                </div>
+              </div>   
+         </div>
+     </div>
+    </div>
+
+</div>
+

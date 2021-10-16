@@ -1,0 +1,23 @@
+
+
+.card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+     background: rebeccapurple;  
+     background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+   
+}
+
+h3 {
+    background-image: linear-gradient(to right top, #181104, #37372a, #556253, #749085, #97bfbf);
+    text-align: center;
+    scroll-behavior: smooth;
+    color:beige;
+}
+
+
+
+
